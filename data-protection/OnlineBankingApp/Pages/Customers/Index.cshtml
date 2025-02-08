@@ -35,7 +35,7 @@
                     $tr.append($('<td>').text("@jsEncoder.Encode(item.DateOfBirth.ToString("d"))"));
                     $tr.append($('<td>').text("@jsEncoder.Encode(item.Email)"));
                     $tr.append($('<td>').text("@jsEncoder.Encode(item.Phone)"));
-                    $tr.append($('<td>').append("<a href='/Customers/Details?id=@item.ID'>See Details</a>"));
+                    $tr.append($('<td>').append("<a href='/Customers/Details?id=@item.EncCustomerID'>See Details</a>"));
                     $tr.appendTo('#table');
                 </text>
             }

@@ -43,5 +43,9 @@ namespace OnlineBankingApp.Models
         public string Phone { get; set; }
 
         public List<Account> Accounts { get; set; }
-    }
+
+        [NotMapped]
+        public string  EncCustomerID { get; set; }
+    
+        }
 }
