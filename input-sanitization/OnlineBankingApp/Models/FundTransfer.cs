@@ -1,5 +1,5 @@
-using System;
-using System.Collections.Generic;
+using Ganss.Xss;
+using System.Text.RegularExpressions;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -27,9 +27,14 @@ namespace OnlineBankingApp.Models
 
         [StringLength(60)]
         [DataType(DataType.MultilineText)]
-        public string Note {
-            get => note;                      
-            set => note = value;                    
+        public string Note
+        {
+            
+            get {return note; } 
+            set { note = value;} 
+
+            //set => note = Regex.Replace(value,  @"[\!\@\$\%\^\&\<\>\?\|\;\[\]\{\~]+", string.Empty);      
+            //set => note = new HtmlSanitizer().Sanitize(value); 
         }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
