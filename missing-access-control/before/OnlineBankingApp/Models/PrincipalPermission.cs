@@ -10,13 +10,19 @@ namespace OnlineBankingApp.Authorization {
 		public static List<Func<AuthorizationHandlerContext, bool >> 
 		Criteria =
         [
-            CanCreateFundTransfer
+            CanCreateFundTransfer,
+			CanViewFundTransfer
 		];
 
 		
 		public static bool CanCreateFundTransfer(this AuthorizationHandlerContext ctx)
-		{	
+		{
 			return ctx.User.IsInRole(Role.ActiveCustomer.ToString());
+		}
+
+		public static bool CanViewFundTransfer(this AuthorizationHandlerContext ctx)
+		{
+			return ctx.User.IsInRole(Role.Customer.ToString());
 		}
 	}
 }

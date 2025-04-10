@@ -25,6 +25,7 @@ namespace OnlineBankingApp.Areas.Identity.Pages.Account
 
         public void OnGet()
         {
+            throw new NotImplementedException("Metodo no implementado");
         }
 
         public async Task<IActionResult> OnPost(string returnUrl = null)

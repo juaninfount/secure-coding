@@ -93,7 +93,9 @@ namespace OnlineBankingApp.Areas.Identity.Pages.Account
                     {
                         HttpContext.Session.SetString(SessionKeyName, Input.Email);
                     }
-
+                    /*
+                    will throw an InvalidOperationException exception when the URL is trying to redirect 
+                    to a website that is not local.*/
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

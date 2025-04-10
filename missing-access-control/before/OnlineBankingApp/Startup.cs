@@ -2,16 +2,9 @@ using OnlineBankingApp.Data;
 using OnlineBankingApp.Services;
 using OnlineBankingApp.Authorization;
 using Microsoft.EntityFrameworkCore;
-
-using System.Globalization;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Options;
-
 using OnlineBankingApp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.AspNetCore.Http;
-
 using Microsoft.AspNetCore.Authorization;
 
 namespace OnlineBankingApp
@@ -51,8 +44,7 @@ namespace OnlineBankingApp
                     options.UseSqlServer(Configuration.GetConnectionString("OnlineBankingAppContext")));
             }
 
-            services.AddIdentity<Customer,IdentityRole>(
-                        options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddIdentity<Customer,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<OnlineBankingAppContext>()
                 .AddDefaultTokenProviders();
@@ -71,7 +63,7 @@ namespace OnlineBankingApp
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(30);  
             });            
          
-            //services.AddRazorPages();
+            
             services.AddRazorPages(options =>
             {
                 options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");

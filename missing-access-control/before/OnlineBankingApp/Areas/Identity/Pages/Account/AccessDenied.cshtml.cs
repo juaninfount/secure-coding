@@ -10,7 +10,7 @@ namespace OnlineBankingApp.Areas.Identity.Pages.Account
     {
         public void OnGet()
         {
-
+            throw new NotSupportedException("Access Denied");
         }
     }
 }
